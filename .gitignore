@@ -92,4 +92,4 @@ ENV/
 # PyDev project settings
 .project
 .pydevproject
-.settings
+.settings/
