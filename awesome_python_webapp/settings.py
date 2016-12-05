@@ -127,4 +127,4 @@ STATIC_URL = '/static/'
 
 # Root path to folder containing media files
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'awesome_python_webapp/media')

@@ -8,8 +8,11 @@ class User(models.Model):
     password = models.CharField(max_length=50)
     admin = models.BooleanField()
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='blogs/images/user_images')
+    image = models.ImageField(upload_to='blogs/images/user_images', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
     
 class Blog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -17,9 +20,15 @@ class Blog(models.Model):
     summary = models.CharField(max_length=50)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
 
 class Comment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     content = content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.content
     
