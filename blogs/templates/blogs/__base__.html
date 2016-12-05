@@ -8,10 +8,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/uikit.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/uikit.gradient.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/awesome.css' %}"/>
-    <script type="text/javascript" src="blogs/js/jquery.min.js"></script>
-    <script type="text/javascript" src="blogs/js/md5.js"></script>
-    <script type="text/javascript" src="blogs/js/uikit.min.js"></script>
-    <script type="text/javascript" src="blogs/js/awesome.js"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/md5.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/uikit.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/awesome.js' %}"></script>
     {% block beforehead %}{# before head #}{% endblock %}
 </head>
 <body>
@@ -36,7 +36,7 @@
                     </li>
                 {% else %}
                     <li><a href="/signin"><i class="uk-icon-sign-in"></i> 登陆</a></li>
-                    <li><a href="/register"><i class="uk-icon-edit"></i> 注册</a></li>
+                    <li><a href="{% url 'blogs:register' %}"><i class="uk-icon-edit"></i> 注册</a></li>
                 {% endif %}
                 </ul>
             </div>
