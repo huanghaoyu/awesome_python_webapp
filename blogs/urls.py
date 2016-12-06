@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     # ex: /blogs/register/
     url(r'^register/$', views.register, name='register'),
+    # ex: /blogs/signin/
+    url(r'^signin/$', views.signin, name='signin'),
 ]

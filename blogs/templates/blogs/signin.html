@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="uk-height-1-1">
+<head>
+    <meta charset="utf-8" />
+    <title>登录 - Awesome Python Webapp</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/uikit.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/uikit.gradient.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'blogs/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/md5.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/uikit.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/vue.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blogs/js/awesome.js' %}"></script>
+    <script>
+	function check_form() {
+	    $('#password').val(CryptoJS.MD5($('#password1').val()).toString());
+	    return true;
+	}
+	</script>
+</head>
+
+<body class="uk-height-1-1">
+    <div class="uk-vertical-align uk-text-center uk-height-1-1">
+        <div class="uk-vertical-align-middle" style="width: 320px">
+            <p><a href="{% url 'blogs:index' %}" class="uk-icon-button"><i class="uk-icon-html5"></i></a> <a href="{% url 'blogs:index' %}">Awesome Python Webapp</a></p>
+
+            <form action="{% url 'blogs:index' %}" method="post" id="form-signin" v-on="submit: submit" class="uk-panel uk-panel-box uk-form" onsubmit="return check_form()">
+            	{% csrf_token %}
+                <div class="uk-alert uk-alert-danger uk-hidden"></div>
+                <div class="uk-form-row">
+                    <div class="uk-form-icon uk-width-1-1">
+                        <i class="uk-icon-envelope-o"></i>
+                        <input id="email" name="email" type="text" placeholder="电子邮件" maxlength="50" class="uk-width-1-1 uk-form-large">
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <div class="uk-form-icon uk-width-1-1">
+                        <i class="uk-icon-lock"></i>
+                        <input id="password1" type="password" placeholder="密码" maxlength="50" class="uk-width-1-1 uk-form-large">
+                        <input id="password" name="password" type="hidden">
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <button type="submit" class="uk-width-1-1 uk-button uk-button-primary uk-button-large"><i class="uk-icon-sign-in"></i> 登录</button>
+                </div>
+                <div class="uk-form-row uk-text-small">
+                    <label class="uk-float-left"><input id="remember" name='remember' type="checkbox"> 记住我</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
